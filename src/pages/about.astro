@@ -14,7 +14,7 @@ const identity = {
 	const skillColor = "navy";
 	const fontWeight = "bold";
 	const textCase = "uppercase";
-
+	import Navigation from '../components/Navigation.astro';
 	import '../styles/global.css'
 ---
 
@@ -39,9 +39,8 @@ const identity = {
 </style>
 	</head>
 	<body>
-	  <a href="/">Home</a>
-	  <a href="/about">About</a>
-	  <a href="/blog">Blog</a>
+	  <Navigation />
+
 	  <h1>{pageTitle}</h1>
 		<p>I'm Zach, a front-end developer, and I'm currently going through and learning the astro framework, through astro's blog tutorial. I created this page all on my own</p>
 		<p>This page will update continusuoly as I learn more, so make sure to check back to see how it's going, and how it will evolve</p>
