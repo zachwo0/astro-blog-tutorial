@@ -14,36 +14,14 @@ const identity = {
 	const skillColor = "navy";
 	const fontWeight = "bold";
 	const textCase = "uppercase";
-	
-	import Header from '../components/Header.astro';
-	import '../styles/global.css'
-	import Footer from '../components/Footer.astro';
+
+	import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-<style define:vars={{skillColor, fontWeight, textCase}}>
-	h1 {
-		color: purple;
-		font-size: 4rem;
-	}
 
-	.skill {
-		color: var(--skillColor);
-		font-weight: var(--fontWeight);
-		text-transform: var(--textCase);
-	}
-</style>
-	</head>
-	<body>
-	  <Header />
 
-	  <h1>{pageTitle}</h1>
+<BaseLayout pageTitle={pageTitle}>
+ 
 		<p>I'm Zach, a front-end developer, and I'm currently going through and learning the astro framework, through astro's blog tutorial. I created this page all on my own</p>
 		<p>This page will update continusuoly as I learn more, so make sure to check back to see how it's going, and how it will evolve</p>
 		<p>Here are a few facts about me:</p>
@@ -64,9 +42,17 @@ const identity = {
 {finished && <p>I finished this tutorial!</p>}
 
 {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-<Footer />
-<script>
-	import '../scripts/menu.js';
-</script>
-	</body>
-</html>
+
+<style is:global define:vars={{skillColor, fontWeight, textCase}}>
+	h1 {
+		color: purple;
+		font-size: 4rem;
+	}
+
+	.skill {
+		color: var(--skillColor);
+		font-weight: var(--fontWeight);
+		text-transform: var(--textCase);
+	}
+</style>
+</BaseLayout>
